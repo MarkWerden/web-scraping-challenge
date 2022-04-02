@@ -1,0 +1,71 @@
+<!DOCTYPE html> <!--A lot of this is kinda just a reapeat of my last assignment, as I'm basically just creating another website.-->
+<html lang="en"> <!--Note: It will look slightly different than last time, but the core purpose remains the same. I'll comment where I can. - Mark-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intital-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!--I looked this up, and supposedly this is now depreciated. I included it just in case.-->
+    
+    <title>Web Scraping Assignment - Mission to Mars</title>
+
+    <!--HTML's form of importing-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center bg-light"> <!--Like the previous assignment, these classes have very specific names for a reason.-->
+            <h1>Mission to Mars</h1>
+            <a class="btn btn-dark btn-md" href="/scrape" role="button">Scrape New Data</a>
+        </div>
+        <h2>Latest Mars News</h2>
+        <hr>
+        <h5>{{ final_mars_data.latest_news }}</h5>
+        <h6 class="text-muted">{{ final_mars_data.latest_news_p }}</h6>
+        <br>
+
+        <div class="container">
+            <div class="row row-cols-*">
+                <div class="col">
+                    <h2>Featured Image from Mars</h2> 
+                    <img class="img-fluid" src="{{ final_mars_data.featured_image }}">
+                </div>
+                <div class="table-responsive">
+                    <h5>Mars vs. Earth: Comparison</h5>
+                    {{ final_mars_data.comparison_table | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <br>
+        <h2 class="text-center">Mars' Hemispheres:</h2>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="{{ final_mars_data.image1 }}" height="256" width="256" alt="{{ final_mars_data.title1 }}">
+                    <h5 class="card-title">{{ final_mars_data.title1 }}</h5>
+            </div>
+            <div class="col-md-3">
+                <img src="{{ final_mars_data.image2 }}" height="256" width="256" alt="{{ final_mars_data.title2 }}">
+                    <h5 class="card-title">{{final_mars_data.title2 }}</h5>
+
+            </div>
+            <div class="col-md-3">
+                <img src="{{ final_mars_data.image3 }}" height="256" width="256" alt="{{ final_mars_data.title3 }}">
+                    <h5 class="card-title">{{ final_mars_data.title3 }}</h5>
+            </div>
+            <div class="col-md-3">
+                <img src="{{ final_mars_data.image4 }}" height="256" width="256" alt="{{ final_mars_data.title4 }}">
+                    <h5 class="card-title">{{ final_mars_data.title4 }}</h5>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</body>
+</html>

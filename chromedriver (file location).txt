@@ -1,0 +1,1 @@
+This would be the location of the local chrome driver I used for the jupyter file. It's only used for that but everything else uses the web install. There is also no actual chrome driver in here as well, primarily for security reasons. - Mark
